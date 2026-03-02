@@ -144,7 +144,7 @@ moderation_test <- anova(model_baseline, model_full)
 print(moderation_test)
 ```
 
-```{r fig.height=4, fig.width=6}
+```{r fig.height=6, fig.width=10}
 predicted_baseline <- predict(model_baseline)
 predicted_full <- predict(model_full)
 
@@ -153,8 +153,8 @@ df <- data.frame(Observed = error_time_dataset_no5$Error_Time,
                  Predicted_2 = predicted_full)
 
 ggplot(df, aes(x = Observed)) +
-  geom_point(aes(y = Predicted_1, color = 'cyan4'), alpha = .5, size = 2) +
-  geom_point(aes(y = Predicted_2, color = 'orange'), alpha = .5, size = 2) +
+  geom_point(aes(y = Predicted_1, color = 'cyan4'), alpha = .5, size = 4) +
+  geom_point(aes(y = Predicted_2, color = 'orange'), alpha = .5, size = 4) +
   geom_abline(intercept = 0, slope = 1,
               linetype = "dashed") + 
   scale_color_manual(labels = c("Model 1", "Model 2"), values = c("cyan4", "orange")) +
